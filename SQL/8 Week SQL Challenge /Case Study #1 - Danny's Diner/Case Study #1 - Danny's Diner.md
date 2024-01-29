@@ -17,7 +17,7 @@ You can find the structure of the databases provided by Danny [here](https://dbd
 
 **1. What is the total amount each customer spent at the restaurant?**
 
- ```
+ ```sql
 SELECT
   customer_id,
   SUM(price) as total_spent
@@ -47,7 +47,7 @@ Customer A spent 76$, customer B spent 74$ and customer C spent 36$. The custome
 
 **2. How many days has each customer visited the restaurant?**
 
-```
+```sql
 SELECT
   customer_id,
   COUNT(order_date) AS visit_count
@@ -74,7 +74,7 @@ ORDER BY
 Customer A and customer B have visited the restaurant 6 times, while customer C has only visited it 3 times.
 
 **3. What was the first item from the menu purchased by each customer?**
-```
+```sql
 WITH sales_by_date AS(
   SELECT
     customer_id,
@@ -120,7 +120,7 @@ The first items purchased by A were curry and sushi. Customer had curry as their
 
 **4. What is the most purchased item on the menu and how many times was it purchased by all customers?**
 
-```
+```sql
 SELECT 
   product_name,
   COUNT(product_name) AS times_purchased
@@ -146,7 +146,7 @@ LIMIT
 The most ordered item was ramen and it was purchased 8 times.
 
 **5. Which item was the most popular for each customer?**
-```
+```sql
 WITH purchased_food AS(
   SELECT
     customer_id, 
@@ -195,7 +195,7 @@ WHERE
 The most popular item for customer A was ramen, which they purchased three times. Customer B was fond of all the dishes, as they ordered two times each. For customer C, the most popular item was ramen.
 
 **6. Which item was purchased first by the customer after they became a member?**
-```
+```sql
 WITH ranked_purchases AS (
   SELECT 
     sales.customer_id,
@@ -235,7 +235,7 @@ WHERE
 The first item customer A ordered as a member was curry. Customer B ordered sushi.
 
 **7. Which item was purchased just before the customer became a member?**
-```
+```sql
 WITH ranked_purchases AS (
   SELECT 
     sales.customer_id,
@@ -276,7 +276,7 @@ WHERE
 Before becoming members, both customer A and B ordered sushi.
 
 # 8. What is the total items and amount spent for each member before they became a member?
-```
+```sql
 SELECT
   sales.customer_id,
   COUNT(sales.customer_id) AS order_amount,
@@ -307,7 +307,7 @@ GROUP BY
 The customer that has made more orders is customer B. They are also the customer that has spent more money at the restaurant.
 
 **9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?**
-```
+```sql
 WITH point_counter AS(
   SELECT
     product_id,
@@ -347,7 +347,7 @@ ORDER BY
 With this point system, customer B would have 940 points, customer A would have 860 and customer C would have 360 points.
 
 **10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?**
-```
+```sql
 WITH point_calculator AS (
   SELECT
     sales.customer_id,
@@ -405,24 +405,24 @@ We need to create a table so Danny and his team can use it to quickly derive ins
 
 | customer_id |	order_date	| product_name | price | member |
 | ----------- | ----------- | ------------ | ----- | ------ |
-| A           | 2021-01-01	| curry	       | 15    | N      |
+| A           | 2021-01-01	 | curry	       | 15    | N      |
 | A           |	2021-01-01  | sushi	       | 10    | N      |
 | A           |	2021-01-07  | curry	       | 15    | Y      |
 | A	          | 2021-01-10  | ramen        | 12    | Y      |
 | A	          | 2021-01-11  | ramen	       | 12    | Y      |
 | A	          | 2021-01-11  | ramen        | 12    | Y      |
 | B           | 2021-01-01  | curry        | 15    | N      |
-| B	          | 2021-01-02	| curry	       | 15    | N      |
-| B	          |2021-01-04	 | sushi	       | 10    | N      |
-| B	          |2021-01-11	 | sushi	       | 10    | Y      |
-| B	          |2021-01-16	 | ramen	       | 12    | Y      |
-| B	          |2021-02-01  | ramen	       | 12    | Y      |
-| C	          |2021-01-01	 | ramen	       | 12    | N      |
-| C	          |2021-01-01	 | ramen	       | 12    | N      |
-| C	          |2021-01-07	 | ramen	       | 12    | N      |
+| B	          | 2021-01-02 	| curry	       | 15    | N      |
+| B	          |2021-01-04	  | sushi	       | 10    | N      |
+| B	          |2021-01-11	  | sushi	       | 10    | Y      |
+| B	          |2021-01-16	  | ramen	       | 12    | Y      |
+| B	          |2021-02-01   | ramen	       | 12    | Y      |
+| C	          |2021-01-01	  | ramen	       | 12    | N      |
+| C	          |2021-01-01	  | ramen	       | 12    | N      |
+| C	          |2021-01-07 	 | ramen	       | 12    | N      |
 
 Here is the code to do it:
-```
+```sql
 SELECT
   sales.customer_id,
   order_date,
@@ -449,7 +449,9 @@ ORDER BY
 * Order by `customer_id`, `order_date` and `price`.
 
 **Rank All The Things**
+
 Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program. Let's recreate the following table:
+
 | customer_id |	order_date	| product_name | price | member | ranking |
 | ----------- | ----------- | ------------ | ----- | ------ | ------- |
 | A           | 2021-01-01	| curry	       | 15    | N      | NULL    |
@@ -469,7 +471,8 @@ Danny also requires further information about the ranking of customer products, 
 | C	          |2021-01-07	| ramen	       | 12    | N      | NULL    |
 
 Here is the code to do it:
-```
+
+```sql
 WITH customer_table AS(
   SELECT
     sales.customer_id,
