@@ -12,11 +12,11 @@ You can find the structure of the databases provided by Danny [here](https://dbd
 
 ## Case study questions
 
-* [Data preparation]()
+* [Data preparation](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/Data%20preparation.md)
 * [A. Pizza Metrics]()
 * [B. Runner and Customer Experience]()
 * [C. Ingredient Optimisation]()
 * [D. Pricing and Ratings]()
 * [E. Bonus Questions]()
 
-Next section: [Data Preparation]()
+Next section: [Data Preparation](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/Data%20preparation.md)
