@@ -102,4 +102,4 @@ With our code, the table now looks like this:
 ![image](https://github.com/avidiella/portfolio/assets/143961739/7efc11d4-bb97-480c-846d-b4839a6b42c4)
 
 
-Next section: [Pizza Metrics]()
+Next section: [Pizza Metrics](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/A.%20Pizza%20Metrics.md)
