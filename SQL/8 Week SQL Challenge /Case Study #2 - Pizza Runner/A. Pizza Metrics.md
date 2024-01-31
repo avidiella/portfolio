@@ -316,4 +316,4 @@ ORDER BY
 * There were 3 orders on Thursday.
 * There were 5 orders on Wednesday.
 
-Next section: [Runner and Customer Experience]()
+Next section: [Runner and Customer Experience](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/B.%20Runner%20and%20customer%20service.md)
