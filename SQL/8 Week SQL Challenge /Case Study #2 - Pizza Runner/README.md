@@ -14,7 +14,7 @@ You can find the structure of the databases provided by Danny [here](https://dbd
 
 * [Data preparation](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/Data%20preparation.md)
 * [A. Pizza Metrics](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/A.%20Pizza%20Metrics.md)
-* [B. Runner and Customer Experience]()
+* [B. Runner and Customer Experience](https://github.com/avidiella/portfolio/blob/main/SQL/8%20Week%20SQL%20Challenge%20/Case%20Study%20%232%20-%20Pizza%20Runner/B.%20Runner%20and%20customer%20service.md)
 * [C. Ingredient Optimisation]()
 * [D. Pricing and Ratings]()
 * [E. Bonus Questions]()
