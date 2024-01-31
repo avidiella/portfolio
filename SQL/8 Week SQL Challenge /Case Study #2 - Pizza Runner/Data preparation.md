@@ -84,8 +84,8 @@ FROM
 ALTER TABLE
   clean_runner_orders
   ALTER COLUMN pickup_time TYPE TIMESTAMP USING pickup_time::timestamp without time zone,
-  ALTER COLUMN distance TYPE float USING distance::double precision,
-  ALTER COLUMN duration TYPE int USING duration::integer;
+  ALTER COLUMN distance TYPE numeric USING distance::double precision,
+  ALTER COLUMN duration TYPE numeric USING duration::integer;
 ```
 
 **Steps:**
